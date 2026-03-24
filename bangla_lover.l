@@ -2,36 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "symbol_table.h"
+#include "bangla_lover.tab.h"
 
 /*
   Bangla Lover (BLPL) - Lexical Analyzer (Flex)
   ------------------------------------------------
-  Output style: TOKEN_TYPE : lexeme (Line: x, Col: y)
-
-  This is the tokenization/demo lexer (prints tokens). When you move to Bison,
-  replace print_token(...) actions with: return TOKEN; and set yylval as needed.
+  Integrated with Bison parser. Returns tokens instead of printing.
+  Handles keywords, identifiers, literals, operators, and delimiters.
 */
-
-static int line_number = 1;
-static int column_number = 1;
-
-static void update_position(const char *text) {
-    for (int i = 0; i < yyleng; i++) {
-        if (text[i] == '\n') {
-            line_number++;
-            column_number = 1;
-        } else {
-            column_number++;
-        }
-    }
-}
-
-#define print_token(type, value) \
-    fprintf(yyout, "%-22s : %-20s (Line: %d, Col: %d)\n", \
-            type, value, line_number, column_number - yyleng)
 %}
 
 %option noyywrap
+%option yylineno
 
 DIGIT           [0-9]
 LETTER          [a-zA-Z]
@@ -43,113 +26,87 @@ NEWLINE         \n
 
 %%
 
-"//".*                  { update_position(yytext); }
+"//".*                  { /* Single-line comment */ }
 
 "/*"                    {
                             int c, prev = 0;
                             while ((c = input()) != EOF) {
-                                if (c == '\n') { line_number++; column_number = 1; }
-                                else { column_number++; }
+                                if (c == '\n') { yylineno++; }
                                 if (prev == '*' && c == '/') break;
                                 prev = c;
                             }
                         }
 
-"dhoro"                 { update_position(yytext); print_token("KW_DHORO", yytext); }
-"dhruvo"                { update_position(yytext); print_token("KW_DHRUVO", yytext); }
-"jodi"                  { update_position(yytext); print_token("KW_JODI", yytext); }
-"nahole"                { update_position(yytext); print_token("KW_NAHOLE", yytext); }
-"jotokkhon"             { update_position(yytext); print_token("KW_JOTOKKHON", yytext); }
-"barbar"                { update_position(yytext); print_token("KW_BARBAR", yytext); }
-"dekhao"                { update_position(yytext); print_token("KW_DEKHAO", yytext); }
-"ne"                    { update_position(yytext); print_token("KW_NE", yytext); }
+"dhoro"                 { return KW_DHORO; }
+"dhruvo"                { return KW_DHRUVO; }
+"jodi"                  { return KW_JODI; }
+"nahole"                { return KW_NAHOLE; }
+"jotokkhon"             { return KW_JOTOKKHON; }
+"barbar"                { return KW_BARBAR; }
+"dekhao"                { return KW_DEKHAO; }
+"ne"                    { return KW_NE; }
 
-"sin"                   { update_position(yytext); print_token("KW_SIN", yytext); }
-"cos"                   { update_position(yytext); print_token("KW_COS", yytext); }
-"tan"                   { update_position(yytext); print_token("KW_TAN", yytext); }
-"sec"                   { update_position(yytext); print_token("KW_SEC", yytext); }
+"sin"                   { return KW_SIN; }
+"cos"                   { return KW_COS; }
+"tan"                   { return KW_TAN; }
+"sec"                   { return KW_SEC; }
 
-"true"                  { update_position(yytext); print_token("BOOL_TRUE", yytext); }
-"false"                 { update_position(yytext); print_token("BOOL_FALSE", yytext); }
+"true"                  { return BOOL_TRUE; }
+"false"                 { return BOOL_FALSE; }
 
-\"([^\\\n\"]|\\.)*\"    { update_position(yytext); print_token("STRING_LITERAL", yytext); }
+\"([^\\\n\"]|\\.)*\"    { 
+                            yylval.str_val = (char*)malloc(yyleng + 1);
+                            strcpy(yylval.str_val, yytext);
+                            return STRING_LITERAL;
+                        }
 
-{FLOAT}                 { update_position(yytext); print_token("FLOAT_LITERAL", yytext); }
-{INTEGER}               { update_position(yytext); print_token("INT_LITERAL", yytext); }
+[0-9]+\.[0-9]+          { 
+                            yylval.num_val = atof(yytext);
+                            return FLOAT_LITERAL;
+                        }
 
-{IDENTIFIER}            { update_position(yytext); print_token("IDENTIFIER", yytext); }
+[0-9]+                  { 
+                            yylval.num_val = atof(yytext);
+                            return INT_LITERAL;
+                        }
 
-"=="                    { update_position(yytext); print_token("OP_EQ", yytext); }
-"!="                    { update_position(yytext); print_token("OP_NEQ", yytext); }
-"<="                    { update_position(yytext); print_token("OP_LTE", yytext); }
-">="                    { update_position(yytext); print_token("OP_GTE", yytext); }
-"<"                     { update_position(yytext); print_token("OP_LT", yytext); }
-">"                     { update_position(yytext); print_token("OP_GT", yytext); }
-"="                     { update_position(yytext); print_token("OP_ASSIGN", yytext); }
+[a-zA-Z_][a-zA-Z0-9_]* { 
+                            yylval.str_val = (char*)malloc(yyleng + 1);
+                            strcpy(yylval.str_val, yytext);
+                            return IDENTIFIER;
+                        }
 
-"&&"                    { update_position(yytext); print_token("OP_AND", yytext); }
-"||"                    { update_position(yytext); print_token("OP_OR", yytext); }
-"!"                     { update_position(yytext); print_token("OP_NOT", yytext); }
+"=="                    { return OP_EQ; }
+"!="                    { return OP_NEQ; }
+"<="                    { return OP_LTE; }
+">="                    { return OP_GTE; }
+"<"                     { return OP_LT; }
+">"                     { return OP_GT; }
+"="                     { return OP_ASSIGN; }
 
-"+"                     { update_position(yytext); print_token("OP_PLUS_SYM", yytext); }
-"-"                     { update_position(yytext); print_token("OP_MINUS_SYM", yytext); }
-"*"                     { update_position(yytext); print_token("OP_STAR_SYM", yytext); }
-"/"                     { update_position(yytext); print_token("OP_SLASH_SYM", yytext); }
-"%"                     { update_position(yytext); print_token("OP_MOD", yytext); }
+"&&"                    { return OP_AND; }
+"||"                    { return OP_OR; }
+"!"                     { return OP_NOT; }
 
-"("                     { update_position(yytext); print_token("LPAREN", yytext); }
-")"                     { update_position(yytext); print_token("RPAREN", yytext); }
-"{"                     { update_position(yytext); print_token("LBRACE", yytext); }
-"}"                     { update_position(yytext); print_token("RBRACE", yytext); }
-";"                     { update_position(yytext); print_token("SEMICOLON", yytext); }
-","                     { update_position(yytext); print_token("COMMA", yytext); }
+"+"                     { return OP_PLUS_SYM; }
+"-"                     { return OP_MINUS_SYM; }
+"*"                     { return OP_STAR_SYM; }
+"/"                     { return OP_SLASH_SYM; }
+"%"                     { return OP_MOD; }
 
-{WHITESPACE}            { update_position(yytext); }
-{NEWLINE}               { line_number++; column_number = 1; }
+"("                     { return LPAREN; }
+")"                     { return RPAREN; }
+"{"                     { return LBRACE; }
+"}"                     { return RBRACE; }
+";"                     { return SEMICOLON; }
+","                     { return COMMA; }
+
+[ \t\r]+                { /* Whitespace */ }
+\n                      { yylineno++; }
 
 .                       {
-                            fprintf(yyout,
-                                    "ERROR: Unrecognized character '%s' at line %d, column %d\n",
-                                    yytext, line_number, column_number);
-                            update_position(yytext);
+                            fprintf(stderr, "Lexical Error: Unrecognized character '%c' at line %d\n",
+                                    yytext[0], yylineno);
                         }
 
 %%
-
-int main(int argc, char *argv[]) {
-    const char *in_name = (argc >= 2) ? argv[1] : "test.bl";
-    const char *out_name = (argc >= 3) ? argv[2] : "lexer_output.txt";
-
-    FILE *input_file = fopen(in_name, "r");
-    if (!input_file) {
-        fprintf(stderr, "Error: Cannot open input file '%s'\n", in_name);
-        return 1;
-    }
-
-    FILE *output_file = fopen(out_name, "w");
-    if (!output_file) {
-        fprintf(stderr, "Error: Cannot create output file '%s'\n", out_name);
-        fclose(input_file);
-        return 1;
-    }
-
-    yyin = input_file;
-    yyout = output_file;
-
-    fprintf(output_file, "========================================\n");
-    fprintf(output_file, "   Bangla Lover (BLPL) Lexical Output\n");
-    fprintf(output_file, "   Source File: %s\n", in_name);
-    fprintf(output_file, "========================================\n\n");
-
-    yylex();
-
-    fprintf(output_file, "\n========================================\n");
-    fprintf(output_file, "       Lexical Analysis Complete\n");
-    fprintf(output_file, "========================================\n");
-
-    fclose(input_file);
-    fclose(output_file);
-
-    printf("Lexing done. Output written to %s\n", out_name);
-    return 0;
-}
