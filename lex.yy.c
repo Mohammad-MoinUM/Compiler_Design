@@ -262,11 +262,15 @@ static void yy_flex_free YY_PROTO(( void * ));
 #define YY_AT_BOL() (yy_current_buffer->yy_at_bol)
 
 
+#define YY_USES_REJECT
+
 #define yywrap() 1
 #define YY_SKIP_YYWRAP
 typedef unsigned char YY_CHAR;
 FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;
 typedef int yy_state_type;
+extern int yylineno;
+int yylineno = 1;
 extern char *yytext;
 #define yytext_ptr yytext
 
@@ -287,20 +291,42 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 
 #define YY_NUM_RULES 45
 #define YY_END_OF_BUFFER 46
-static yyconst short int yy_accept[102] =
+static yyconst short int yy_acclist[167] =
     {   0,
-        0,    0,   46,   44,   42,   43,   30,   44,   35,   44,
-       36,   37,   33,   31,   41,   32,   34,   19,   40,   25,
-       27,   26,   20,   20,   20,   20,   20,   20,   20,   20,
-       20,   38,   44,   39,   42,   22,    0,   17,    0,   28,
-        2,    1,    0,   19,   23,   21,   24,   20,   20,   20,
-       20,   20,   20,   20,   20,   10,   20,   20,   20,   20,
-       29,    1,   18,   20,   12,   20,   20,   20,   20,   20,
-       20,   20,   14,   11,   13,   20,   20,   20,   20,   20,
-       20,    5,   20,   20,   15,   20,   20,    3,   20,   16,
-       20,   20,    8,    9,    4,   20,    6,   20,   20,    7,
+       46,   44,   45,   42,   44,   45,   43,   45,   30,   44,
+       45,   44,   45,   35,   44,   45,   44,   45,   36,   44,
+       45,   37,   44,   45,   33,   44,   45,   31,   44,   45,
+       41,   44,   45,   32,   44,   45,   34,   44,   45,   19,
+       44,   45,   40,   44,   45,   25,   44,   45,   27,   44,
+       45,   26,   44,   45,   20,   44,   45,   20,   44,   45,
+       20,   44,   45,   20,   44,   45,   20,   44,   45,   20,
+       44,   45,   20,   44,   45,   20,   44,   45,   20,   44,
+       45,   38,   44,   45,   44,   45,   39,   44,   45,   42,
+       22,   17,   28,    2,    1,   19,   23,   21,   24,   20,
 
-        0
+       20,   20,   20,   20,   20,   20,   20,   10,   20,   20,
+       20,   20,   20,   29,    1,   18,   20,   12,   20,   20,
+       20,   20,   20,   20,   20,   20,   14,   20,   11,   20,
+       13,   20,   20,   20,   20,   20,   20,   20,    5,   20,
+       20,   20,   15,   20,   20,   20,    3,   20,   20,   16,
+       20,   20,   20,    8,   20,    9,   20,    4,   20,   20,
+        6,   20,   20,   20,    7,   20
+    } ;
+
+static yyconst short int yy_accept[103] =
+    {   0,
+        1,    1,    1,    2,    4,    7,    9,   12,   14,   17,
+       19,   22,   25,   28,   31,   34,   37,   40,   43,   46,
+       49,   52,   55,   58,   61,   64,   67,   70,   73,   76,
+       79,   82,   85,   87,   90,   91,   92,   92,   93,   93,
+       94,   95,   96,   96,   97,   98,   99,  100,  101,  102,
+      103,  104,  105,  106,  107,  108,  110,  111,  112,  113,
+      114,  115,  116,  117,  118,  120,  121,  122,  123,  124,
+      125,  126,  127,  129,  131,  133,  134,  135,  136,  137,
+      138,  139,  141,  142,  143,  145,  146,  147,  149,  150,
+      152,  153,  154,  156,  158,  160,  161,  163,  164,  165,
+
+      167,  167
     } ;
 
 static yyconst int yy_ec[256] =
@@ -314,11 +340,11 @@ static yyconst int yy_ec[256] =
        19,   20,    1,    1,   21,   21,   21,   21,   21,   21,
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
        21,   21,   21,   21,   21,   21,   21,   21,   21,   21,
-        1,   22,    1,    1,   23,    1,   24,   25,   26,   27,
+        1,   22,    1,    1,   21,    1,   23,   24,   25,   26,
 
-       28,   29,   21,   30,   31,   32,   33,   34,   21,   35,
-       36,   21,   21,   37,   38,   39,   40,   41,   21,   21,
-       21,   21,   42,   43,   44,    1,    1,    1,    1,    1,
+       27,   28,   21,   29,   30,   31,   32,   33,   21,   34,
+       35,   21,   21,   36,   37,   38,   39,   40,   21,   21,
+       21,   21,   41,   42,   43,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -335,29 +361,29 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[45] =
+static yyconst int yy_meta[44] =
     {   0,
         1,    1,    2,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    3,    1,    1,    1,    1,
         3,    1,    3,    3,    3,    3,    3,    3,    3,    3,
         3,    3,    3,    3,    3,    3,    3,    3,    3,    3,
-        3,    1,    1,    1
+        1,    1,    1
     } ;
 
 static yyconst short int yy_base[105] =
     {   0,
-        0,    0,  119,  120,  116,  120,   98,   40,  120,  109,
-      120,  120,  120,  120,  120,  120,   36,   33,  120,   96,
-       95,   94,    0,   88,   75,   20,   86,   73,   28,   26,
-       29,  120,   65,  120,  105,  120,   50,  120,    0,  120,
-      120,    0,   90,   44,  120,  120,  120,    0,   68,   66,
+        0,    0,  118,  119,  115,  119,   97,   39,  119,  108,
+      119,  119,  119,  119,  119,  119,   35,   32,  119,   95,
+       94,   93,    0,   88,   75,   20,   86,   73,   28,   26,
+       29,  119,   65,  119,  104,  119,   49,  119,    0,  119,
+      119,    0,   89,   43,  119,  119,  119,    0,   68,   66,
        70,   27,   68,   32,   71,    0,   74,   64,   63,   57,
-      120,    0,   80,   70,    0,   64,   56,   52,   53,   59,
+      119,    0,   79,   70,    0,   64,   56,   52,   53,   59,
        53,   52,    0,    0,    0,   59,   62,   61,   48,   42,
        54,    0,   48,   46,    0,   42,   41,    0,   38,    0,
        37,   41,    0,    0,    0,   38,    0,   31,   30,    0,
 
-      120,   72,   58,   75
+      119,   71,   57,   74
     } ;
 
 static yyconst short int yy_def[105] =
@@ -376,57 +402,60 @@ static yyconst short int yy_def[105] =
         0,  101,  101,  101
     } ;
 
-static yyconst short int yy_nxt[165] =
+static yyconst short int yy_nxt[163] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
        14,   15,   16,    4,   17,   18,   19,   20,   21,   22,
-       23,    4,   23,   23,   24,   25,   26,   23,   27,   23,
-       23,   28,   23,   23,   29,   23,   23,   30,   31,   23,
-       23,   32,   33,   34,   38,   41,   43,   51,   44,   52,
-       42,   55,   59,   57,   38,   56,   58,   43,   70,   44,
-       48,   39,   67,   68,  100,   60,   99,   98,   97,   96,
-       71,   39,   37,   95,   37,   62,   94,   62,   93,   92,
-       91,   90,   89,   88,   87,   86,   85,   84,   83,   82,
-       81,   80,   79,   78,   77,   63,   76,   75,   74,   73,
+       23,    4,   23,   24,   25,   26,   23,   27,   23,   23,
+       28,   23,   23,   29,   23,   23,   30,   31,   23,   23,
+       32,   33,   34,   38,   41,   43,   51,   44,   52,   42,
+       55,   59,   57,   38,   56,   58,   43,   70,   44,   48,
+       39,   67,   68,  100,   60,   99,   98,   97,   96,   71,
+       39,   37,   95,   37,   62,   94,   62,   93,   92,   91,
+       90,   89,   88,   87,   86,   85,   84,   83,   82,   81,
+       80,   79,   78,   77,   63,   76,   75,   74,   73,   72,
 
-       72,   69,   66,   65,   64,   63,   35,   61,   54,   53,
-       50,   49,   47,   46,   45,   40,   36,   35,  101,    3,
+       69,   66,   65,   64,   63,   35,   61,   54,   53,   50,
+       49,   47,   46,   45,   40,   36,   35,  101,    3,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
-      101,  101,  101,  101
+      101,  101
     } ;
 
-static yyconst short int yy_chk[165] =
+static yyconst short int yy_chk[163] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    8,   17,   18,   26,   18,   26,
-       17,   29,   31,   30,   37,   29,   30,   44,   54,   44,
-      103,    8,   52,   52,   99,   31,   98,   96,   92,   91,
-       54,   37,  102,   89,  102,  104,   87,  104,   86,   84,
-       83,   81,   80,   79,   78,   77,   76,   72,   71,   70,
-       69,   68,   67,   66,   64,   63,   60,   59,   58,   57,
+        1,    1,    1,    8,   17,   18,   26,   18,   26,   17,
+       29,   31,   30,   37,   29,   30,   44,   54,   44,  103,
+        8,   52,   52,   99,   31,   98,   96,   92,   91,   54,
+       37,  102,   89,  102,  104,   87,  104,   86,   84,   83,
+       81,   80,   79,   78,   77,   76,   72,   71,   70,   69,
+       68,   67,   66,   64,   63,   60,   59,   58,   57,   55,
 
-       55,   53,   51,   50,   49,   43,   35,   33,   28,   27,
-       25,   24,   22,   21,   20,   10,    7,    5,    3,  101,
+       53,   51,   50,   49,   43,   35,   33,   28,   27,   25,
+       24,   22,   21,   20,   10,    7,    5,    3,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
       101,  101,  101,  101,  101,  101,  101,  101,  101,  101,
-      101,  101,  101,  101
+      101,  101
     } ;
 
-static yy_state_type yy_last_accepting_state;
-static char *yy_last_accepting_cpos;
-
-/* The intent behind this definition is that it'll catch
- * any uses of REJECT which flex missed.
- */
-#define REJECT reject_used_but_not_detected
+static yy_state_type yy_state_buf[YY_BUF_SIZE + 2], *yy_state_ptr;
+static char *yy_full_match;
+static int yy_lp;
+#define REJECT \
+{ \
+*yy_cp = yy_hold_char; /* undo effects of setting up yytext */ \
+yy_cp = yy_full_match; /* restore poss. backed-over text */ \
+++yy_lp; \
+goto find_rule; \
+}
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
@@ -437,34 +466,16 @@ char *yytext;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "symbol_table.h"
+#include "bangla_lover.tab.h"
 
 /*
   Bangla Lover (BLPL) - Lexical Analyzer (Flex)
   ------------------------------------------------
-  Output style: TOKEN_TYPE : lexeme (Line: x, Col: y)
-
-  This is the tokenization/demo lexer (prints tokens). When you move to Bison,
-  replace print_token(...) actions with: return TOKEN; and set yylval as needed.
+  Integrated with Bison parser. Returns tokens instead of printing.
+  Handles keywords, identifiers, literals, operators, and delimiters.
 */
-
-static int line_number = 1;
-static int column_number = 1;
-
-static void update_position(const char *text) {
-    for (int i = 0; i < yyleng; i++) {
-        if (text[i] == '\n') {
-            line_number++;
-            column_number = 1;
-        } else {
-            column_number++;
-        }
-    }
-}
-
-#define print_token(type, value) \
-    fprintf(yyout, "%-22s : %-20s (Line: %d, Col: %d)\n", \
-            type, value, line_number, column_number - yyleng)
-#line 468 "lex.yy.c"
+#line 479 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -615,10 +626,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 44 "bangla_lover.l"
+#line 27 "bangla_lover.l"
 
 
-#line 622 "lex.yy.c"
+#line 633 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -657,15 +668,12 @@ YY_DECL
 		yy_bp = yy_cp;
 
 		yy_current_state = yy_start;
+		yy_state_ptr = yy_state_buf;
+		*yy_state_ptr++ = yy_current_state;
 yy_match:
 		do
 			{
 			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
-			if ( yy_accept[yy_current_state] )
-				{
-				yy_last_accepting_state = yy_current_state;
-				yy_last_accepting_cpos = yy_cp;
-				}
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
@@ -673,47 +681,57 @@ yy_match:
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
+			*yy_state_ptr++ = yy_current_state;
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 120 );
+		while ( yy_base[yy_current_state] != 119 );
 
 yy_find_action:
-		yy_act = yy_accept[yy_current_state];
-		if ( yy_act == 0 )
-			{ /* have to back up */
-			yy_cp = yy_last_accepting_cpos;
-			yy_current_state = yy_last_accepting_state;
-			yy_act = yy_accept[yy_current_state];
+		yy_current_state = *--yy_state_ptr;
+		yy_lp = yy_accept[yy_current_state];
+find_rule: /* we branch to this label when backing up */
+		for ( ; ; ) /* until we find what rule we matched */
+			{
+			if ( yy_lp && yy_lp < yy_accept[yy_current_state + 1] )
+				{
+				yy_act = yy_acclist[yy_lp];
+					{
+					yy_full_match = yy_cp;
+					break;
+					}
+				}
+			--yy_cp;
+			yy_current_state = *--yy_state_ptr;
+			yy_lp = yy_accept[yy_current_state];
 			}
 
 		YY_DO_BEFORE_ACTION;
 
+		if ( yy_act != YY_END_OF_BUFFER )
+			{
+			int yyl;
+			for ( yyl = 0; yyl < yyleng; ++yyl )
+				if ( yytext[yyl] == '\n' )
+					++yylineno;
+			}
 
 do_action:	/* This label is used only to access EOF actions. */
 
 
 		switch ( yy_act )
 	{ /* beginning of action switch */
-			case 0: /* must back up */
-			/* undo the effects of YY_DO_BEFORE_ACTION */
-			*yy_cp = yy_hold_char;
-			yy_cp = yy_last_accepting_cpos;
-			yy_current_state = yy_last_accepting_state;
-			goto yy_find_action;
-
 case 1:
 YY_RULE_SETUP
-#line 46 "bangla_lover.l"
-{ update_position(yytext); }
+#line 29 "bangla_lover.l"
+{ /* Single-line comment */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 48 "bangla_lover.l"
+#line 31 "bangla_lover.l"
 {
                             int c, prev = 0;
                             while ((c = input()) != EOF) {
-                                if (c == '\n') { line_number++; column_number = 1; }
-                                else { column_number++; }
+                                if (c == '\n') { yylineno++; }
                                 if (prev == '*' && c == '/') break;
                                 prev = c;
                             }
@@ -721,227 +739,239 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 58 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_DHORO", yytext); }
+#line 40 "bangla_lover.l"
+{ return KW_DHORO; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 59 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_DHRUVO", yytext); }
+#line 41 "bangla_lover.l"
+{ return KW_DHRUVO; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 60 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_JODI", yytext); }
+#line 42 "bangla_lover.l"
+{ return KW_JODI; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 61 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_NAHOLE", yytext); }
+#line 43 "bangla_lover.l"
+{ return KW_NAHOLE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 62 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_JOTOKKHON", yytext); }
+#line 44 "bangla_lover.l"
+{ return KW_JOTOKKHON; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 63 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_BARBAR", yytext); }
+#line 45 "bangla_lover.l"
+{ return KW_BARBAR; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 64 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_DEKHAO", yytext); }
+#line 46 "bangla_lover.l"
+{ return KW_DEKHAO; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 65 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_NE", yytext); }
+#line 47 "bangla_lover.l"
+{ return KW_NE; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 67 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_SIN", yytext); }
+#line 49 "bangla_lover.l"
+{ return KW_SIN; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 68 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_COS", yytext); }
+#line 50 "bangla_lover.l"
+{ return KW_COS; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 69 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_TAN", yytext); }
+#line 51 "bangla_lover.l"
+{ return KW_TAN; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 70 "bangla_lover.l"
-{ update_position(yytext); print_token("KW_SEC", yytext); }
+#line 52 "bangla_lover.l"
+{ return KW_SEC; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 72 "bangla_lover.l"
-{ update_position(yytext); print_token("BOOL_TRUE", yytext); }
+#line 54 "bangla_lover.l"
+{ return BOOL_TRUE; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 73 "bangla_lover.l"
-{ update_position(yytext); print_token("BOOL_FALSE", yytext); }
+#line 55 "bangla_lover.l"
+{ return BOOL_FALSE; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 75 "bangla_lover.l"
-{ update_position(yytext); print_token("STRING_LITERAL", yytext); }
+#line 57 "bangla_lover.l"
+{ 
+                            yylval.str_val = (char*)malloc(yyleng + 1);
+                            strcpy(yylval.str_val, yytext);
+                            return STRING_LITERAL;
+                        }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 77 "bangla_lover.l"
-{ update_position(yytext); print_token("FLOAT_LITERAL", yytext); }
+#line 63 "bangla_lover.l"
+{ 
+                            yylval.num_val = atof(yytext);
+                            return FLOAT_LITERAL;
+                        }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 78 "bangla_lover.l"
-{ update_position(yytext); print_token("INT_LITERAL", yytext); }
+#line 68 "bangla_lover.l"
+{ 
+                            yylval.num_val = atof(yytext);
+                            return INT_LITERAL;
+                        }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 80 "bangla_lover.l"
-{ update_position(yytext); print_token("IDENTIFIER", yytext); }
+#line 73 "bangla_lover.l"
+{ 
+                            yylval.str_val = (char*)malloc(yyleng + 1);
+                            strcpy(yylval.str_val, yytext);
+                            return IDENTIFIER;
+                        }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 82 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_EQ", yytext); }
+#line 79 "bangla_lover.l"
+{ return OP_EQ; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 83 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_NEQ", yytext); }
+#line 80 "bangla_lover.l"
+{ return OP_NEQ; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 84 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_LTE", yytext); }
+#line 81 "bangla_lover.l"
+{ return OP_LTE; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 85 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_GTE", yytext); }
+#line 82 "bangla_lover.l"
+{ return OP_GTE; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 86 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_LT", yytext); }
+#line 83 "bangla_lover.l"
+{ return OP_LT; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 87 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_GT", yytext); }
+#line 84 "bangla_lover.l"
+{ return OP_GT; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 88 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_ASSIGN", yytext); }
+#line 85 "bangla_lover.l"
+{ return OP_ASSIGN; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 90 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_AND", yytext); }
+#line 87 "bangla_lover.l"
+{ return OP_AND; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 91 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_OR", yytext); }
+#line 88 "bangla_lover.l"
+{ return OP_OR; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 92 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_NOT", yytext); }
+#line 89 "bangla_lover.l"
+{ return OP_NOT; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 94 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_PLUS_SYM", yytext); }
+#line 91 "bangla_lover.l"
+{ return OP_PLUS_SYM; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 95 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_MINUS_SYM", yytext); }
+#line 92 "bangla_lover.l"
+{ return OP_MINUS_SYM; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 96 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_STAR_SYM", yytext); }
+#line 93 "bangla_lover.l"
+{ return OP_STAR_SYM; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 97 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_SLASH_SYM", yytext); }
+#line 94 "bangla_lover.l"
+{ return OP_SLASH_SYM; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 98 "bangla_lover.l"
-{ update_position(yytext); print_token("OP_MOD", yytext); }
+#line 95 "bangla_lover.l"
+{ return OP_MOD; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 100 "bangla_lover.l"
-{ update_position(yytext); print_token("LPAREN", yytext); }
+#line 97 "bangla_lover.l"
+{ return LPAREN; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 101 "bangla_lover.l"
-{ update_position(yytext); print_token("RPAREN", yytext); }
+#line 98 "bangla_lover.l"
+{ return RPAREN; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 102 "bangla_lover.l"
-{ update_position(yytext); print_token("LBRACE", yytext); }
+#line 99 "bangla_lover.l"
+{ return LBRACE; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 103 "bangla_lover.l"
-{ update_position(yytext); print_token("RBRACE", yytext); }
+#line 100 "bangla_lover.l"
+{ return RBRACE; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 104 "bangla_lover.l"
-{ update_position(yytext); print_token("SEMICOLON", yytext); }
+#line 101 "bangla_lover.l"
+{ return SEMICOLON; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 105 "bangla_lover.l"
-{ update_position(yytext); print_token("COMMA", yytext); }
+#line 102 "bangla_lover.l"
+{ return COMMA; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 107 "bangla_lover.l"
-{ update_position(yytext); }
+#line 104 "bangla_lover.l"
+{ /* Whitespace */ }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 108 "bangla_lover.l"
-{ line_number++; column_number = 1; }
+#line 105 "bangla_lover.l"
+{ yylineno++; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 110 "bangla_lover.l"
+#line 107 "bangla_lover.l"
 {
-                            fprintf(yyout,
-                                    "ERROR: Unrecognized character '%s' at line %d, column %d\n",
-                                    yytext, line_number, column_number);
-                            update_position(yytext);
+                            fprintf(stderr, "Lexical Error: Unrecognized character '%c' at line %d\n",
+                                    yytext[0], yylineno);
                         }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 117 "bangla_lover.l"
+#line 112 "bangla_lover.l"
 ECHO;
 	YY_BREAK
-#line 943 "lex.yy.c"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 973 "lex.yy.c"
+			case YY_STATE_EOF(INITIAL):
+				yyterminate();
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1219,15 +1249,12 @@ static yy_state_type yy_get_previous_state()
 	register char *yy_cp;
 
 	yy_current_state = yy_start;
+	yy_state_ptr = yy_state_buf;
+	*yy_state_ptr++ = yy_current_state;
 
 	for ( yy_cp = yytext_ptr + YY_MORE_ADJ; yy_cp < yy_c_buf_p; ++yy_cp )
 		{
 		register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 1);
-		if ( yy_accept[yy_current_state] )
-			{
-			yy_last_accepting_state = yy_current_state;
-			yy_last_accepting_cpos = yy_cp;
-			}
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
@@ -1235,6 +1262,7 @@ static yy_state_type yy_get_previous_state()
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
+		*yy_state_ptr++ = yy_current_state;
 		}
 
 	return yy_current_state;
@@ -1255,14 +1283,8 @@ yy_state_type yy_current_state;
 #endif
 	{
 	register int yy_is_jam;
-	register char *yy_cp = yy_c_buf_p;
 
 	register YY_CHAR yy_c = 1;
-	if ( yy_accept[yy_current_state] )
-		{
-		yy_last_accepting_state = yy_current_state;
-		yy_last_accepting_cpos = yy_cp;
-		}
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
@@ -1271,6 +1293,8 @@ yy_state_type yy_current_state;
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 	yy_is_jam = (yy_current_state == 101);
+	if ( ! yy_is_jam )
+		*yy_state_ptr++ = yy_current_state;
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1313,6 +1337,8 @@ register char *yy_bp;
 
 	*--yy_cp = (char) c;
 
+	if ( c == '\n' )
+		--yylineno;
 
 	yytext_ptr = yy_bp;
 	yy_hold_char = *yy_cp;
@@ -1389,6 +1415,8 @@ static int input()
 	*yy_c_buf_p = '\0';	/* preserve yytext */
 	yy_hold_char = *++yy_c_buf_p;
 
+	if ( c == '\n' )
+		++yylineno;
 
 	return c;
 	}
@@ -1825,43 +1853,5 @@ int main()
 	return 0;
 	}
 #endif
-#line 117 "bangla_lover.l"
+#line 112 "bangla_lover.l"
 
-
-int main(int argc, char *argv[]) {
-    const char *in_name = (argc >= 2) ? argv[1] : "test.bl";
-    const char *out_name = (argc >= 3) ? argv[2] : "lexer_output.txt";
-
-    FILE *input_file = fopen(in_name, "r");
-    if (!input_file) {
-        fprintf(stderr, "Error: Cannot open input file '%s'\n", in_name);
-        return 1;
-    }
-
-    FILE *output_file = fopen(out_name, "w");
-    if (!output_file) {
-        fprintf(stderr, "Error: Cannot create output file '%s'\n", out_name);
-        fclose(input_file);
-        return 1;
-    }
-
-    yyin = input_file;
-    yyout = output_file;
-
-    fprintf(output_file, "========================================\n");
-    fprintf(output_file, "   Bangla Lover (BLPL) Lexical Output\n");
-    fprintf(output_file, "   Source File: %s\n", in_name);
-    fprintf(output_file, "========================================\n\n");
-
-    yylex();
-
-    fprintf(output_file, "\n========================================\n");
-    fprintf(output_file, "       Lexical Analysis Complete\n");
-    fprintf(output_file, "========================================\n");
-
-    fclose(input_file);
-    fclose(output_file);
-
-    printf("Lexing done. Output written to %s\n", out_name);
-    return 0;
-}
