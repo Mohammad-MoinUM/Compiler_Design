@@ -1,0 +1,17 @@
+// ===============================================
+// BLPL Test 2: Conditionals (jodi/nahole)
+// ===============================================
+
+dhoro a = 10;
+dhoro b = 5;
+
+jodi (a > b) {
+    dekhao "a is greater than b";
+}
+
+jodi (a == b) {
+    dekhao "a equals b";
+} nahole {
+    dekhao "a does not equal b";
+}
+

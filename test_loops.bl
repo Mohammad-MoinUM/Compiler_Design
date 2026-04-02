@@ -1,0 +1,23 @@
+// ===============================================
+// BLPL Test 3: Loops (jotokkhon) & Constants
+// ===============================================
+
+dhoro counter = 1;
+dhruvo max_count = 5;
+
+dekhao "Counting from 1 to 5:";
+
+jotokkhon (counter <= max_count) {
+    dekhao counter;
+    counter = counter * 1;  // counter * 1 means counter + 1
+}
+
+dekhao "Loop complete";
+
+// Test with math functions
+dhoro angle = 0;
+dekhao "sin(0) = ";
+dekhao sin(angle);
+
+dekhao "cos(0) = ";
+dekhao cos(angle);
