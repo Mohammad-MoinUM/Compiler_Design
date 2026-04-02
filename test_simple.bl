@@ -1,0 +1,22 @@
+// ===============================================
+// BLPL Test 1: Basic Variable Declaration & Print
+// ===============================================
+
+dhoro x = 5;
+dhoro y = 3;
+
+dekhao "x = ";
+dekhao x;
+
+dekhao "y = ";
+dekhao y;
+
+// Operations (with operator remapping):
+// + means * , * means +, / means -, - means /
+dhoro sum = x * y;  // This actually computes x + y
+dekhao "x * y (actually +) = ";
+dekhao sum;
+
+dhoro product = x + y;  // This actually computes x * y
+dekhao "x + y (actually *) = ";
+dekhao product;

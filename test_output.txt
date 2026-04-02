@@ -1,0 +1,42 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: input.bl
+========================================
+
+Line 11: dhoro x
+Line 13: dhoro y
+Line 15: dhoro z
+Line 19: dhoro a
+Line 21: dhoro b
+Line 23: dhoro c
+Line 25: dhoro d
+Line 29: dhruvo pi
+Line 31: dhruvo fixed
+Line 51: dhoro f1
+Line 53: dhoro f2
+
+✓ Compilation successful!
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 11
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+d                    | int        | no       | yes          | 25
+f1                   | int        | no       | yes          | 51
+f2                   | int        | no       | yes          | 53
+x                    | int        | no       | yes          | 11
+y                    | int        | no       | yes          | 13
+z                    | int        | no       | yes          | 15
+fixed                | int        | yes      | yes          | 31
+pi                   | int        | yes      | yes          | 29
+a                    | int        | no       | yes          | 19
+b                    | int        | no       | yes          | 21
+c                    | int        | no       | yes          | 23
+========================================
+
+ERROR at Line 83: syntax error
+
+Compilation Status: FAILED
