@@ -1,0 +1,24 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: test_conditionals.bl
+========================================
+
+Line 9: dhoro a
+Line 11: dhoro b
+
+✓ Compilation successful!
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 2
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+a                    | int        | no       | yes          | 9
+b                    | int        | no       | yes          | 11
+========================================
+
+ERROR at Line 27: syntax error
+
+Compilation Status: FAILED
