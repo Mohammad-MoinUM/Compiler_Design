@@ -954,7 +954,7 @@ YY_RULE_SETUP
 case 43:
 YY_RULE_SETUP
 #line 105 "bangla_lover.l"
-{ yylineno++; }
+{ /* Flex tracks yylineno automatically */ }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP

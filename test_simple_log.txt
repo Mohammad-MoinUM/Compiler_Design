@@ -3,12 +3,13 @@
    Input File: .\test_simple.bl
 ========================================
 
-Line 9: dhoro x
-Line 11: dhoro y
-Line 31: dhoro sum
-Line 39: dhoro product
+Line 5: dhoro x
+Line 6: dhoro y
+Line 16: dhoro sum
+Line 20: dhoro product
 
-✓ Compilation successful!
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
 
 ========================================
          SYMBOL TABLE CONTENTS
@@ -17,12 +18,9 @@ Total Symbols: 4
 
 Name                 | Type       | Const?   | Initialized? | Line
 ---------------------------------------------
-x                    | int        | no       | yes          | 9
-y                    | int        | no       | yes          | 11
-product              | int        | no       | yes          | 39
-sum                  | int        | no       | yes          | 31
+x                    | int        | no       | yes          | 5
+y                    | int        | no       | yes          | 6
+product              | int        | no       | yes          | 20
+sum                  | int        | no       | yes          | 16
 ========================================
 
-
-Compilation Status: SUCCESS
-Generated C code: blpl_output.c

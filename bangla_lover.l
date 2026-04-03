@@ -102,7 +102,7 @@ NEWLINE         \n
 ","                     { return COMMA; }
 
 [ \t\r]+                { /* Whitespace */ }
-\n                      { yylineno++; }
+\n                      { /* Flex tracks yylineno automatically */ }
 
 .                       {
                             fprintf(stderr, "Lexical Error: Unrecognized character '%c' at line %d\n",
