@@ -5,7 +5,6 @@
 #include <stdbool.h>
 
 int main() {
-    printf("%d\n", (int)((10>7)?10:7));
-    printf("%d\n", (int)((10<7)?10:7));
+    printf("%d\n", (int)((5)*(5)));
     return 0;
 }

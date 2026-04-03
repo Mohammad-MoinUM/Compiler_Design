@@ -53,7 +53,7 @@ void finalize_c_output(void) {
 }
 
 %token KW_DHORO KW_DHRUVO KW_JODI KW_NAHOLE KW_JOTOKKHON KW_BARBAR
-%token KW_DEKHAO KW_NE KW_SIN KW_COS KW_TAN KW_SEC KW_BORO KW_SOTO
+%token KW_DEKHAO KW_NE KW_SIN KW_COS KW_TAN KW_SEC KW_BORGO KW_BORO KW_SOTO
 %token OP_EQ OP_NEQ OP_LTE OP_GTE OP_LT OP_GT OP_ASSIGN
 %token OP_AND OP_OR OP_NOT
 %token OP_PLUS_SYM OP_MINUS_SYM OP_STAR_SYM OP_SLASH_SYM OP_MOD
@@ -220,6 +220,19 @@ expr
         snprintf($$.expr_str, sizeof($$.expr_str), "(1.0/cos(%s))", $3.expr_str);
         $$.value = (cos($3.value) != 0) ? 1.0/cos($3.value) : 0;
     }
+    | IDENTIFIER LPAREN expr RPAREN {
+        if (strcmp($1, "borgo") == 0) {
+            $$.type = TYPE_FLOAT;
+            snprintf($$.expr_str, sizeof($$.expr_str), "((%s)*(%s))", $3.expr_str, $3.expr_str);
+            $$.value = $3.value * $3.value;
+        } else {
+            fprintf(stderr, "Error (Line %d): Undefined function '%s'\n", yylineno, $1);
+            $$.type = TYPE_INT;
+            strcpy($$.expr_str, "0");
+            $$.value = 0;
+        }
+        free($1);
+    }
     | IDENTIFIER LPAREN expr COMMA expr RPAREN {
         if (strcmp($1, "boro") == 0) {
             $$.type = TYPE_FLOAT;
@@ -236,6 +249,11 @@ expr
             $$.value = 0;
         }
         free($1);
+    }
+    | KW_BORGO LPAREN expr RPAREN {
+        $$.type = TYPE_FLOAT;
+        snprintf($$.expr_str, sizeof($$.expr_str), "((%s)*(%s))", $3.expr_str, $3.expr_str);
+        $$.value = $3.value * $3.value;
     }
     | KW_BORO LPAREN expr COMMA expr RPAREN {
         $$.type = TYPE_FLOAT;

@@ -1,0 +1,20 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\uniqueness_test_borgo.bl
+========================================
+
+
+✓ Compilation successful!
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 0
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+========================================
+
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
