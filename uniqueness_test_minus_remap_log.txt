@@ -1,0 +1,24 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\uniqueness_test_minus_remap.bl
+========================================
+
+Line 1: dhoro a
+Line 2: dhoro b
+Line 3: dhoro result
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 3
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+result               | int        | no       | yes          | 3
+a                    | int        | no       | yes          | 1
+b                    | int        | no       | yes          | 2
+========================================
+

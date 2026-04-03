@@ -1,0 +1,28 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\uniqueness_test_uniqueness.bl
+========================================
+
+Line 1: dhoro x
+Line 2: dhoro y
+Line 5: dhoro mult
+Line 9: dhoro divv
+Line 12: dhoro angle
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 5
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+mult                 | int        | no       | yes          | 5
+x                    | int        | no       | yes          | 1
+y                    | int        | no       | yes          | 2
+angle                | int        | no       | yes          | 12
+divv                 | int        | no       | yes          | 9
+========================================
+

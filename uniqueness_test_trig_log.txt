@@ -1,0 +1,20 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\uniqueness_test_trig.bl
+========================================
+
+Line 1: dhoro angle
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 1
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+angle                | int        | no       | yes          | 1
+========================================
+

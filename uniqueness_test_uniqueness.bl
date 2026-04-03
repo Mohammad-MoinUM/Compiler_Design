@@ -1,0 +1,17 @@
+dhoro x = 6;
+dhoro y = 2;
+
+dekhao "Testing + remap:";
+dhoro mult = x + y;
+dekhao mult;
+
+dekhao "Testing - remap:";
+dhoro divv = x - y;
+dekhao divv;
+
+dhoro angle = 0;
+dekhao "Testing sin:";
+dekhao sin(angle);
+
+dekhao "Testing cos:";
+dekhao cos(angle);

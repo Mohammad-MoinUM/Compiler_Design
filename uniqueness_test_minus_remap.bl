@@ -1,0 +1,6 @@
+dhoro a = 20;
+dhoro b = 5;
+dhoro result = a - b;
+
+dekhao "a - b in BLPL actually means a / b";
+dekhao result;

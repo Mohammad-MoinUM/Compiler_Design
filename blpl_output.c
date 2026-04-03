@@ -5,21 +5,18 @@
 #include <stdbool.h>
 
 int main() {
-    const int pi = 3;
-    int radius = 5;
-    int area = 0;
-    printf("%s\n", "Radius:");
-    printf("%d\n", (int)radius);
-    area = ((pi+radius)+radius);
-    printf("%s\n", "Area:");
-    printf("%d\n", (int)area);
-        if ((area>50)) {
-        printf("%s\n", "Area is large");
-    } else {
-        printf("%s\n", "Area is small");
-    }
-        while ((radius>0)) {
-        printf("%s\n", "Radius loop:");
-        printf("%d\n", (int)radius);
-        radius = (radius-1);
-    }
+    int x = 6;
+    int y = 2;
+    printf("%s\n", "Testing + remap:");
+    int mult = (x*y);
+    printf("%d\n", (int)mult);
+    printf("%s\n", "Testing - remap:");
+    int divv = (x/y);
+    printf("%d\n", (int)divv);
+    int angle = 0;
+    printf("%s\n", "Testing sin:");
+    printf("%d\n", (int)sin(angle));
+    printf("%s\n", "Testing cos:");
+    printf("%d\n", (int)cos(angle));
+    return 0;
+}

@@ -1,0 +1,7 @@
+dhoro angle = 0;
+
+dekhao "sin(0) = ";
+dekhao sin(angle);
+
+dekhao "cos(0) = ";
+dekhao cos(angle);
