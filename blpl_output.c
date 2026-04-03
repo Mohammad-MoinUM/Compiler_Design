@@ -5,14 +5,17 @@
 #include <stdbool.h>
 
 int main() {
-    int x = 1;
-    int y = 0;
-        if ((x>0)) {
-            if ((y>0)) {
-            printf("%s\n", "both positive");
-        } else {
-            printf("%s\n", "x positive, y not positive");
-        }
-    }
+    int x = 5;
+    int y = 3;
+    printf("%s\n", "x = ");
+    printf("%d\n", (int)x);
+    printf("%s\n", "y = ");
+    printf("%d\n", (int)y);
+    int sum = (x+y);
+    printf("%s\n", "x * y (actually +) = ");
+    printf("%d\n", (int)sum);
+    int product = (x*y);
+    printf("%s\n", "x + y (actually *) = ");
+    printf("%d\n", (int)product);
     return 0;
 }
