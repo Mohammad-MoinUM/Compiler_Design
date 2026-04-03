@@ -5,17 +5,21 @@
 #include <stdbool.h>
 
 int main() {
-    int x = 5;
-    int y = 3;
-    printf("%s\n", "x = ");
-    printf("%d\n", (int)x);
-    printf("%s\n", "y = ");
-    printf("%d\n", (int)y);
-    int sum = (x+y);
-    printf("%s\n", "x * y (actually +) = ");
-    printf("%d\n", (int)sum);
-    int product = (x*y);
-    printf("%s\n", "x + y (actually *) = ");
-    printf("%d\n", (int)product);
-    return 0;
-}
+    const int pi = 3;
+    int radius = 5;
+    int area = 0;
+    printf("%s\n", "Radius:");
+    printf("%d\n", (int)radius);
+    area = ((pi+radius)+radius);
+    printf("%s\n", "Area:");
+    printf("%d\n", (int)area);
+        if ((area>50)) {
+        printf("%s\n", "Area is large");
+    } else {
+        printf("%s\n", "Area is small");
+    }
+        while ((radius>0)) {
+        printf("%s\n", "Radius loop:");
+        printf("%d\n", (int)radius);
+        radius = (radius-1);
+    }
