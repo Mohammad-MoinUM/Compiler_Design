@@ -1,0 +1,26 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\test_loops.bl
+========================================
+
+Line 9: dhoro counter
+Line 11: dhruvo max_count
+Line 35: dhoro angle
+
+✓ Compilation successful!
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 3
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+max_count            | int        | yes      | yes          | 11
+counter              | int        | no       | yes          | 9
+angle                | int        | no       | yes          | 35
+========================================
+
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c

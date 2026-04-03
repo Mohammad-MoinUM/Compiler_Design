@@ -1,0 +1,28 @@
+========================================
+   BANGLA LOVER (BLPL) Compiler Output
+   Input File: .\test_simple.bl
+========================================
+
+Line 9: dhoro x
+Line 11: dhoro y
+Line 31: dhoro sum
+Line 39: dhoro product
+
+✓ Compilation successful!
+
+========================================
+         SYMBOL TABLE CONTENTS
+========================================
+Total Symbols: 4
+
+Name                 | Type       | Const?   | Initialized? | Line
+---------------------------------------------
+x                    | int        | no       | yes          | 9
+y                    | int        | no       | yes          | 11
+product              | int        | no       | yes          | 39
+sum                  | int        | no       | yes          | 31
+========================================
+
+
+Compilation Status: SUCCESS
+Generated C code: blpl_output.c
