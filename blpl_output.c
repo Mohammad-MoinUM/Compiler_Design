@@ -5,18 +5,14 @@
 #include <stdbool.h>
 
 int main() {
-    int counter = 1;
-    const int max_count = 5;
-    printf("%s\n", "Counting from 1 to 5:");
-        while ((counter<=max_count)) {
-        printf("%d\n", (int)counter);
-        counter = (counter+1);
+    int x = 1;
+    int y = 0;
+        if ((x>0)) {
+            if ((y>0)) {
+            printf("%s\n", "both positive");
+        } else {
+            printf("%s\n", "x positive, y not positive");
+        }
     }
-    printf("%s\n", "Loop complete");
-    int angle = 0;
-    printf("%s\n", "sin(0) = ");
-    printf("%d\n", (int)sin(angle));
-    printf("%s\n", "cos(0) = ");
-    printf("%d\n", (int)cos(angle));
     return 0;
 }

@@ -1,10 +1,10 @@
 ========================================
    BANGLA LOVER (BLPL) Compiler Output
-   Input File: test_conditionals.bl
+   Input File: .\test_if_else.bl
 ========================================
 
-Line 9: dhoro a
-Line 11: dhoro b
+Line 1: dhoro x
+Line 3: dhoro y
 
 Compilation Status: SUCCESS
 Generated C code: blpl_output.c
@@ -16,7 +16,7 @@ Total Symbols: 2
 
 Name                 | Type       | Const?   | Initialized? | Line
 ---------------------------------------------
-a                    | int        | no       | yes          | 9
-b                    | int        | no       | yes          | 11
+x                    | int        | no       | yes          | 1
+y                    | int        | no       | yes          | 3
 ========================================
 
