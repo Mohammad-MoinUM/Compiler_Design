@@ -5,6 +5,18 @@
 #include <stdbool.h>
 
 int main() {
-    int a = 5;
-        if ((a>3)) {
-        printf("%s\n", "missing brace before else");
+    int x = 6;
+    int y = 2;
+    printf("%s\n", "Testing + remap:");
+    int mult = (x*y);
+    printf("%d\n", (int)mult);
+    printf("%s\n", "Testing - remap:");
+    int divv = (x/y);
+    printf("%d\n", (int)divv);
+    int angle = 0;
+    printf("%s\n", "Testing sin:");
+    printf("%d\n", (int)sin(angle));
+    printf("%s\n", "Testing cos:");
+    printf("%d\n", (int)cos(angle));
+    return 0;
+}
