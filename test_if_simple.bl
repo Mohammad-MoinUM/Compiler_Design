@@ -1,0 +1,5 @@
+dhoro a = 5;
+
+jodi (a > 3) {
+    dekhao "simple if ok";
+}

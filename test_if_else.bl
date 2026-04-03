@@ -1,0 +1,7 @@
+dhoro a = 2;
+
+jodi (a > 3) {
+    dekhao "if branch";
+} nahole {
+    dekhao "else branch ok";
+}

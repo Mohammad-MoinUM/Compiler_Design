@@ -1,0 +1,12 @@
+dhoro x = 5;
+dhoro y = 10;
+
+jodi (x < y) {
+    jodi (x == 5) {
+        dekhao "nested inner if";
+    } nahole {
+        dekhao "nested inner else";
+    }
+} nahole {
+    dekhao "nested outer else";
+}

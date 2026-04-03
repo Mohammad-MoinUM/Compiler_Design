@@ -37,6 +37,7 @@ void finalize_c_output(void) {
         fprintf(c_output_file, "    return 0;\n");
         fprintf(c_output_file, "}\n");
         fclose(c_output_file);
+        c_output_file = NULL;
     }
 }
 
@@ -63,7 +64,6 @@ void finalize_c_output(void) {
 %token <num_val> INT_LITERAL FLOAT_LITERAL
 
 %type <expr_val> expr
-%type <str_val> stmt
 
 %left OP_OR
 %left OP_AND
@@ -80,11 +80,7 @@ program
     : {
         init_c_output("blpl_output.c");
         sym_table = init_symbol_table(100);
-    } stmts {
-        finalize_c_output();
-        fprintf(output_file, "\n✓ Compilation successful!\n");
-        print_symbol_table(output_file, sym_table);
-    }
+    } stmts
     ;
 
 stmts
@@ -128,21 +124,7 @@ stmt
     | KW_JODI LPAREN expr RPAREN LBRACE {
         brace_depth++;
         CODE("if (%s) {\n", $3.expr_str);
-    } stmts RBRACE {
-        brace_depth--;
-        CODE("}\n");
-    }
-    | KW_JODI LPAREN expr RPAREN LBRACE {
-        brace_depth++;
-        CODE("if (%s) {\n", $3.expr_str);
-    } stmts RBRACE KW_NAHOLE LBRACE {
-        brace_depth--;
-        CODE("} else {\n");
-        brace_depth++;
-    } stmts RBRACE {
-        brace_depth--;
-        CODE("}\n");
-    }
+    } stmts RBRACE opt_nahole
     | KW_JOTOKKHON LPAREN expr RPAREN LBRACE {
         brace_depth++;
         CODE("while (%s) {\n", $3.expr_str);
@@ -156,6 +138,21 @@ stmt
     | KW_DEKHAO STRING_LITERAL SEMICOLON {
         CODE("printf(\"%%s\\n\", %s);\n", $2);
         free($2);
+    }
+    ;
+
+opt_nahole
+    : {
+        brace_depth--;
+        CODE("}\n");
+    }
+    | KW_NAHOLE LBRACE {
+        brace_depth--;
+        CODE("} else {\n");
+        brace_depth++;
+    } stmts RBRACE {
+        brace_depth--;
+        CODE("}\n");
     }
     ;
 
@@ -379,6 +376,9 @@ int main(int argc, char *argv[]) {
     int result = yyparse();
     
     if (result == 0) {
+        finalize_c_output();
+        fprintf(output_file, "\n✓ Compilation successful!\n");
+        print_symbol_table(output_file, sym_table);
         fprintf(output_file, "\nCompilation Status: SUCCESS\n");
         fprintf(output_file, "Generated C code: blpl_output.c\n");
         printf("✓ Compilation successful!\n");
@@ -387,11 +387,14 @@ int main(int argc, char *argv[]) {
     } else {
         fprintf(output_file, "\nCompilation Status: FAILED\n");
         fprintf(stderr, "✗ Compilation failed\n");
+        if (c_output_file) {
+            fclose(c_output_file);
+            c_output_file = NULL;
+        }
     }
     
     fclose(yyin);
     fclose(output_file);
-    if (c_output_file) fclose(c_output_file);
     if (sym_table) free_symbol_table(sym_table);
     
     return result;

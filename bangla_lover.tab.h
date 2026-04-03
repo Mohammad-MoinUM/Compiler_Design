@@ -92,7 +92,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 45 "bangla_lover.y"
+#line 46 "bangla_lover.y"
 
     char* str_val;
     double num_val;
