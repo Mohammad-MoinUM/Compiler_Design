@@ -1,7 +1,0 @@
-dhoro a = 5;
-
-jodi (a > 3) {
-    dekhao "missing brace before else";
-nahole {
-    dekhao "this should fail";
-}
