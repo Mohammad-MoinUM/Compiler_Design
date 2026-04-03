@@ -5,18 +5,7 @@
 #include <stdbool.h>
 
 int main() {
-    int x = 6;
-    int y = 2;
-    printf("%s\n", "Testing + remap:");
-    int mult = (x*y);
-    printf("%d\n", (int)mult);
-    printf("%s\n", "Testing - remap:");
-    int divv = (x/y);
-    printf("%d\n", (int)divv);
-    int angle = 0;
-    printf("%s\n", "Testing sin:");
-    printf("%d\n", (int)sin(angle));
-    printf("%s\n", "Testing cos:");
-    printf("%d\n", (int)cos(angle));
+    printf("%d\n", (int)((10>7)?10:7));
+    printf("%d\n", (int)((10<7)?10:7));
     return 0;
 }

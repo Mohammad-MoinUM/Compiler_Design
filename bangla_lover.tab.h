@@ -51,35 +51,36 @@
      KW_COS = 267,
      KW_TAN = 268,
      KW_SEC = 269,
-     OP_EQ = 270,
-     OP_NEQ = 271,
-     OP_LTE = 272,
-     OP_GTE = 273,
-     OP_LT = 274,
-     OP_GT = 275,
-     OP_ASSIGN = 276,
-     OP_AND = 277,
-     OP_OR = 278,
-     OP_NOT = 279,
-     OP_PLUS_SYM = 280,
-     OP_MINUS_SYM = 281,
-     OP_STAR_SYM = 282,
-     OP_SLASH_SYM = 283,
-     OP_MOD = 284,
-     LPAREN = 285,
-     RPAREN = 286,
-     LBRACE = 287,
-     RBRACE = 288,
-     SEMICOLON = 289,
-     COMMA = 290,
-     BOOL_TRUE = 291,
-     BOOL_FALSE = 292,
-     IDENTIFIER = 293,
-     STRING_LITERAL = 294,
-     INT_LITERAL = 295,
-     FLOAT_LITERAL = 296,
-     LOWER_THAN_ELSE = 297,
-     UMINUS = 298
+     KW_BORO = 270,
+     KW_SOTO = 271,
+     OP_EQ = 272,
+     OP_NEQ = 273,
+     OP_LTE = 274,
+     OP_GTE = 275,
+     OP_LT = 276,
+     OP_GT = 277,
+     OP_ASSIGN = 278,
+     OP_AND = 279,
+     OP_OR = 280,
+     OP_NOT = 281,
+     OP_PLUS_SYM = 282,
+     OP_MINUS_SYM = 283,
+     OP_STAR_SYM = 284,
+     OP_SLASH_SYM = 285,
+     OP_MOD = 286,
+     LPAREN = 287,
+     RPAREN = 288,
+     LBRACE = 289,
+     RBRACE = 290,
+     SEMICOLON = 291,
+     COMMA = 292,
+     BOOL_TRUE = 293,
+     BOOL_FALSE = 294,
+     IDENTIFIER = 295,
+     STRING_LITERAL = 296,
+     INT_LITERAL = 297,
+     FLOAT_LITERAL = 298,
+     UMINUS = 299
    };
 #endif
 
@@ -90,7 +91,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 46 "bangla_lover.y"
+#line 45 "bangla_lover.y"
 
     char* str_val;
     double num_val;
@@ -103,7 +104,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 107 "bangla_lover.tab.h"
+#line 108 "bangla_lover.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

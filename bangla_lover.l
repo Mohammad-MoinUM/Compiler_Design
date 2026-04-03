@@ -50,6 +50,8 @@ NEWLINE         \n
 "cos"                   { return KW_COS; }
 "tan"                   { return KW_TAN; }
 "sec"                   { return KW_SEC; }
+"boro"                  { return KW_BORO; }
+"soto"                  { return KW_SOTO; }
 
 "true"                  { return BOOL_TRUE; }
 "false"                 { return BOOL_FALSE; }
