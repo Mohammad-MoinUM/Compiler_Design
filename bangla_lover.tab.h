@@ -78,7 +78,8 @@
      STRING_LITERAL = 294,
      INT_LITERAL = 295,
      FLOAT_LITERAL = 296,
-     UMINUS = 297
+     LOWER_THAN_ELSE = 297,
+     UMINUS = 298
    };
 #endif
 
@@ -89,7 +90,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 45 "bangla_lover.y"
+#line 46 "bangla_lover.y"
 
     char* str_val;
     double num_val;
@@ -102,7 +103,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 106 "bangla_lover.tab.h"
+#line 107 "bangla_lover.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
